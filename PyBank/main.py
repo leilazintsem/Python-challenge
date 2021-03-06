@@ -33,12 +33,17 @@ with open(csvpath) as csvfile:
     csv_header = next(csvreader)
     print(f"CSV Header: {csv_header}")
 
+# let s store our data in list
     for row in csvreader:
         date.append(row[0])
         profit_loss.append(row[1])
         print(row)
 
-    
+# let s do the math
+# find the total nunmber of months in the data set    
+number = len(date)
+print('Total Months :', number)
+
     
     
 
