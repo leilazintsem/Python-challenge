@@ -61,12 +61,13 @@ with open(csvpath) as csvfile:
             min_date = row[0]
 
     print('Total Months :', total_rows)
-    print('Total Amount :', total_sum)
+    print('Total Amount :', "$" , total_sum)
     # print(p_l_change)
     avg_change = sum(p_l_change[1:])/len(p_l_change[1:])
-    print(avg_change)
+    avg_change = "%.2f" % avg_change
+    print( "change : ", "$", avg_change)
 
-    print(f'Max Increase & Date :{max_inc},{max_date}')
+    print(f'Greatest Increase in Profits : {max_date}' ,"$", max_inc )
 
     
 
