@@ -56,7 +56,15 @@ with open(csvpath) as csvfile:
         candidates_dict[rows[2]] = candidates_dict[rows[2]] +1
     print("Total Votes : " , total_votes)
     print(candidates)
-    
+    for i in candidates_dict:
+        C_votes = candidates_dict[i] 
+        percentage = 100*(C_votes/total_votes)
+        percentage = "%.2f" % percentage
+        print(f'{i}: {percentage},%, {C_votes}')
+        if C_votes > max_vote:
+            max_vote = C_votes
+            winner = i 
+    print(winner)
 
 
 
