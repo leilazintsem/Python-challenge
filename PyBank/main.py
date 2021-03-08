@@ -21,7 +21,17 @@ import csv
 
 #let s declare our variables which will contain values
 date = []
-profit_loss = []
+p_l_change = []
+total_rows = 0
+total_sum = 0
+change  = 0
+previous = 0
+
+max_inc = 0
+max_date = ""
+
+max_dec = 0
+min_date = ""
 
 # Create a file path across the operating system
 csvpath = os.path.join ('Resources', 'budget_data.csv')
@@ -29,42 +39,39 @@ csvpath = os.path.join ('Resources', 'budget_data.csv')
  # open the file
 with open(csvpath) as csvfile: 
     csvreader = csv.reader(csvfile,delimiter=',')
-    print(csvreader)
+    #print(csvreader)
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    #print(f"CSV Header: {csv_header}")
 
 # let s store our data in list
     for row in csvreader:
-        date.append(row[0])
-        profit_loss.append(row[1])
-        #print(row)
-    #######################################################
-    # let s do the math
-    #######################
-    # find the total nunmber of months in the data set    
-    number = len(date)
-    print('Total Months :', number)
+        total_rows=total_rows + 1
+        total_sum  =total_sum + int(row[1])
+        change = int(row[1])- previous
+        #  o/p of line 44 is 867884 - 0, 986770-867884
+        p_l_change.append(change)
+        previous = int(row[1])
 
-    #######################
-    #find the net total amount of profit/Losses over the entire period
-    total_amount = 0
+        if change > max_inc:
+            max_inc = change
+            max_date = row[0]
 
-    for p in profit_loss:
-        total_amount = total_amount + int(p)
-    print("total : ", "$" ,total_amount)
+        if change < max_dec:
+            max_dec = change
+            min_date = row[0]
 
+    avg_change = sum(p_l_change[1:])/len(p_l_change[1:])
+    avg_change = "%.2f" % avg_change
+    # let s print the output
 
-    #find the avergae of profit of the changes in profit/Losses
-    #first create a find changes and create the list
-    total_changes = 0
-
-    # for i in profit_loss:
-    #     changes = int(i)+ int(i+1)
-    #     total_changes = total_changes + changes
-    #     average = total_changes / (len(profit_loss)-1)
-    #     Average = "%.2f" average
-    #     print("average change : ", "$", average)
-
+    
+    print("Financial Analysis")
+    print ("----------------------------------------")
+    print('Total Months :', total_rows)
+    print('Total Amount :', "$" , total_sum)
+    print( "change : ", "$", avg_change)
+    print(f'Greatest Increase in Profits : {max_date}' ,"($", max_inc ,")")
+    print(f'Greatest Decrease in Profits : {min_date}' ,"($", max_dec ,")")
 
 
 
