@@ -39,9 +39,9 @@ csvpath = os.path.join ('Resources', 'budget_data.csv')
  # open the file
 with open(csvpath) as csvfile: 
     csvreader = csv.reader(csvfile,delimiter=',')
-    print(csvreader)
+    #print(csvreader)
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    #print(f"CSV Header: {csv_header}")
 
 # let s store our data in list
     for row in csvreader:
@@ -60,36 +60,20 @@ with open(csvpath) as csvfile:
             max_dec = change
             min_date = row[0]
 
-    print('Total Months :', total_rows)
-    print('Total Amount :', "$" , total_sum)
-    # print(p_l_change)
     avg_change = sum(p_l_change[1:])/len(p_l_change[1:])
     avg_change = "%.2f" % avg_change
-    print( "change : ", "$", avg_change)
+    # let s print the output
 
+    
+    print("Financial Analysis")
+    print ("----------------------------------------")
+    print('Total Months :', total_rows)
+    print('Total Amount :', "$" , total_sum)
+    print( "change : ", "$", avg_change)
     print(f'Greatest Increase in Profits : {max_date}' ,"$", max_inc )
 
     
 
-    # #######################
-    # #find the net total amount of profit/Losses over the entire period
-    # total_amount = 0
-
-    # for p in profit_loss:
-    #     total_amount = total_amount + int(p)
-    # print("total : ", "$" ,total_amount)
-
-
-    # #find the avergae of profit of the changes in profit/Losses
-    # #first create a find changes and create the list
-    # total_changes = 0
-
-    # # for i in profit_loss:
-    # #     changes = int(i)+ int(i+1)
-    # #     total_changes = total_changes + changes
-    # #     average = total_changes / (len(profit_loss)-1)
-    # #     Average = "%.2f" average
-    # #     print("average change : ", "$", average)
 
 
 
