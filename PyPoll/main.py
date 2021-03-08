@@ -44,7 +44,7 @@ with open(csvpath) as csvfile:
     csv_header = next(csvreader)
     #print(f"CSV Header: {csv_header}")
 
-    Print("Election Results")
+    print("Election Results")
     print("-------------------------")
 #calculate the total number of votes assuming every voter votes once
 
@@ -65,28 +65,13 @@ with open(csvpath) as csvfile:
         C_votes = candidates_dict[i] 
         percentage = 100*(C_votes/total_votes)
         percentage = "%.3f" % percentage
-        print(f'{i}: {percentage},%, {C_votes}')
+        print(f'{i}: {percentage} %, ({C_votes})')
         if C_votes > max_vote:
             max_vote = C_votes
             winner = i 
     print("-----------------------------------")
-    print(winner)
+    print(f'winner: {winner}')
     print("-----------------------------------")
 
 
-    # for i in (candidates):
-    #     if i not in  i+1:
-    #         C_votes = i.count(candidates)
-    #         percentage = 100*(C_votes/total_votes)
-    #         percentage = "%.2f" % percentage
-
-
-        # C_votes=  candidates.count(a_candidate)
-        # percentage = 100*(C_votes/total_votes)
-        # percentage = "%.2f" % percentage
-
-    # print("Total Votes : " , total_votes)
-    # # print(i, ":" , percentage, "%", "(", C_votes, ")")
-    # print(candidates)
-    # print(candidates_dict)
     
