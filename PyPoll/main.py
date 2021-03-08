@@ -40,10 +40,12 @@ csvpath = os.path.join ('Resources', 'sample_data.csv')
  # open the file
 with open(csvpath) as csvfile: 
     csvreader = csv.reader(csvfile,delimiter=',')
-    print(csvreader)
+    #print(csvreader)
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    #print(f"CSV Header: {csv_header}")
 
+    Print("Election Results")
+    print("-------------------------")
 #calculate the total number of votes assuming every voter votes once
 
     for rows in csvreader:
@@ -54,18 +56,22 @@ with open(csvpath) as csvfile:
             candidates.append(rows[2])
             candidates_dict[rows[2]] = 0
         candidates_dict[rows[2]] = candidates_dict[rows[2]] +1
+
     print("Total Votes : " , total_votes)
-    print(candidates)
+    print("-------------------------------")
+
+    #print(candidates)
     for i in candidates_dict:
         C_votes = candidates_dict[i] 
         percentage = 100*(C_votes/total_votes)
-        percentage = "%.2f" % percentage
+        percentage = "%.3f" % percentage
         print(f'{i}: {percentage},%, {C_votes}')
         if C_votes > max_vote:
             max_vote = C_votes
             winner = i 
+    print("-----------------------------------")
     print(winner)
-
+    print("-----------------------------------")
 
 
     # for i in (candidates):
