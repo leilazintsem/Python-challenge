@@ -28,9 +28,12 @@ import csv
 voter_id = []
 county = []
 candidates = []
-total_rows=0
+total_votes=0
 total_candidates = 0
-
+a_candidate = 0
+candidates_dict ={}
+winner=""
+max_vote = 0
 #create a file path 
 csvpath = os.path.join ('Resources', 'sample_data.csv')
 
@@ -44,10 +47,32 @@ with open(csvpath) as csvfile:
 #calculate the total number of votes assuming every voter votes once
 
     for rows in csvreader:
-        total_rows = total_rows + 1
-    print("Total Votes : " , total_rows)
-    
-# list of candidates who received votes
-#find uniques values
-    candidates.append(rows[3])
+        total_votes = total_votes + 1
+        voter_id.append(rows[0])
+        county.append(rows[1])
+        if rows[2] not in candidates:
+            candidates.append(rows[2])
+            candidates_dict[rows[2]] = 0
+        candidates_dict[rows[2]] = candidates_dict[rows[2]] +1
+    print("Total Votes : " , total_votes)
     print(candidates)
+    
+
+
+
+    # for i in (candidates):
+    #     if i not in  i+1:
+    #         C_votes = i.count(candidates)
+    #         percentage = 100*(C_votes/total_votes)
+    #         percentage = "%.2f" % percentage
+
+
+        # C_votes=  candidates.count(a_candidate)
+        # percentage = 100*(C_votes/total_votes)
+        # percentage = "%.2f" % percentage
+
+    # print("Total Votes : " , total_votes)
+    # # print(i, ":" , percentage, "%", "(", C_votes, ")")
+    # print(candidates)
+    # print(candidates_dict)
+    
