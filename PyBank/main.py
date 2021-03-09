@@ -74,6 +74,12 @@ with open(csvpath) as csvfile:
     print(f'Greatest Decrease in Profits : {min_date}' ,"($", max_dec ,")")
 
 
+#Specify the file to write to
+output_file = os.path.join("Analysis","output.txt")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_file, 'w') as texfile:
+    texfile.write("Financial Analysis\n")
 
 
 
