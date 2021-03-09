@@ -35,7 +35,7 @@ candidates_dict ={}
 winner=""
 max_vote = 0
 #create a file path 
-csvpath = os.path.join ('Resources', 'sample_data.csv')
+csvpath = os.path.join ('Resources', 'election_data.csv')
 
  # open the file
 with open(csvpath) as csvfile: 
