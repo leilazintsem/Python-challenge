@@ -67,9 +67,9 @@ with open(csvpath) as csvfile:
     
     print("Financial Analysis")
     print ("----------------------------------------")
-    print('Total Months :', total_rows)
-    print('Total Amount :', "$" , total_sum)
-    print( "change : ", "$", avg_change)
+    print(f"Total Months : {total_rows}")
+    print(f"Total Amount : $ {total_sum}")
+    print(f"change : $ {avg_change}")
     print(f'Greatest Increase in Profits : {max_date}' ,"($", max_inc ,")")
     print(f'Greatest Decrease in Profits : {min_date}' ,"($", max_dec ,")")
 
@@ -78,9 +78,14 @@ with open(csvpath) as csvfile:
 output_file = os.path.join("Analysis","output.txt")
 
 # Open the file using "write" mode. Specify the variable to hold the contents
-with open(output_file, 'w') as texfile:
-    texfile.write("Financial Analysis\n")
-
+with open(output_file, 'w') as textfile:
+    textfile.write("Financial Analysis\n")
+    textfile.write("----------------------------------------\n")
+    textfile.write(f"Total Months : {total_rows}\n")
+    textfile.write(f"Total Amount : $ {total_sum}\n")
+    textfile.write(f"change : $ {avg_change}\n")
+    textfile.write(f"Greatest Increase in Profits : {max_date} ($ {max_inc})\n")
+    textfile.write(f"Greatest Decrease in Profits : {min_date} ($ {max_dec})\n")
 
 
 
