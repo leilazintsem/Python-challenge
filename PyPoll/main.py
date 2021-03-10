@@ -57,7 +57,7 @@ with open(csvpath) as csvfile:
             candidates_dict[rows[2]] = 0
         candidates_dict[rows[2]] = candidates_dict[rows[2]] +1
 
-    print("Total Votes : " , total_votes)
+    print(f"Total Votes :  {total_votes}")
     print("-------------------------------")
 
     #print(candidates)
@@ -74,4 +74,16 @@ with open(csvpath) as csvfile:
     print("-----------------------------------")
 
 
-    
+#Specify the file to write to
+output_file = os.path.join("Analysis","output.txt")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_file, 'w') as textfile:
+    textfile.write("Election Results\n")
+    textfile.write("----------------------------------------\n")
+    textfile.write(f"Total Votes :  {total_votes}\n")
+    textfile.write("-------------------------------\n")
+    textfile.write(f"{i}: {percentage} %, ({C_votes})\n")
+    textfile.write("-----------------------------------\n")
+    textfile.write(f"winner: {winner}\n")
+    textfile.write("-----------------------------------\n")
