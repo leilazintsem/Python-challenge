@@ -83,7 +83,11 @@ with open(output_file, 'w') as textfile:
     textfile.write("----------------------------------------\n")
     textfile.write(f"Total Votes :  {total_votes}\n")
     textfile.write("-------------------------------\n")
-    textfile.write(f"{i}: {percentage} %, ({C_votes})\n")
+    for i in candidates_dict:
+        C_votes = candidates_dict[i] 
+        percentage = 100*(C_votes/total_votes)
+        percentage = "%.3f" % percentage
+        textfile.write(f"{i}: {percentage} %, ({C_votes})\n")
     textfile.write("-----------------------------------\n")
     textfile.write(f"winner: {winner}\n")
     textfile.write("-----------------------------------\n")
