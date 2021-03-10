@@ -65,10 +65,6 @@ Greatest Decrease in Profits: Sep-2013 ($-2196167)
   -------------------------
   ```
 
-## Hints and Considerations
-
-* Consider what we've learned so far. To date, we've learned how to import modules like `csv`; to read and write files in various formats; to store contents in variables, lists, and dictionaries; to iterate through basic data structures; and to debug along the way. Using what we've learned, try to break down your tasks into discrete mini-objectives. This will be a _much_ better course of action than spending all your time looking for a solution on Stack Overflow.
-
 ---
 
 #### Hints and Considerations
